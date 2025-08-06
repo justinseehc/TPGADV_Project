@@ -10,7 +10,6 @@ public class TileSpawner : MonoBehaviour
 
     // modify tile configuration
     public float tileWidth = 1f; // what is the size of the tile?
-
     public int tileBehind = 10; // how many tiles behind (on the left of the camera)?
     public int tileForward = 10; // how many tiles forward (on the right of the camera)?
 
@@ -18,8 +17,7 @@ public class TileSpawner : MonoBehaviour
     public int platformNoSpawnMaxTiles = 2; // from X = 0, how many tiles away shall the tiles not spawn? (Player Spawn Area Only)
     public float platformFloatingHeight = 2.5f; // how high should the platform spawn?
 
-    int lastTileIndex = 0;
-    Dictionary<int, GameObject> tiles = new Dictionary<int, GameObject>();
+    Dictionary<int, GameObject> tiles = new Dictionary<int, GameObject>(); // what are the gameobject that the script should know?
 
     void Update()
     {

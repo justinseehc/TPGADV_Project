@@ -8,7 +8,12 @@ public class EndGame : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Death"))
         {
-            Debug.Log("GAME OVER!!!");
+            GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("GAME OVER!!!");
     }
 }
