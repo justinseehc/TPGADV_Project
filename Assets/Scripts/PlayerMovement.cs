@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    // change @ inspector!
+    public float moveSpeed = 5f; // how fast the player moves
+    public float jumpForce = 10f; // how high the player jumps
 
+
+
+    // only change here!
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    public bool isGrounded = true;
+    private bool isGrounded;
 
     void Start()
     {
@@ -37,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         // Vertical Movement - JUMP
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            Debug.Log(isGrounded);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
