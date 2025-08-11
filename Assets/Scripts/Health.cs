@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
 
     // 2 - only change here!
     private int maxHealth = 3;
-    private float heartPosX = -10f; // use this for the first heart position x
+    private float heartPosX = -11f; // use this for the first heart position x
     private Dictionary<int, GameObject> hearts = new Dictionary<int, GameObject>(); // to store hearts gameobject
 
     private void Start()

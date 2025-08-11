@@ -44,7 +44,7 @@ public class Tile : MonoBehaviour
                 // Randomly spawn a platform above
                 if (Random.value < platformChance)
                 {
-                    Vector3 platformPos = new Vector2(i * tileWidth, platformFloatHeight);
+                    Vector2 platformPos = new Vector2(i * tileWidth, platformFloatHeight);
                     if (platformPos.x > (tileWidth * noSpawnZone)) // prevent platform from spawning too early
                     {
                         Instantiate(platformPrefab, platformPos, Quaternion.identity);
@@ -56,7 +56,7 @@ public class Tile : MonoBehaviour
                 if (Random.value < letterChance)
                 {
                     Vector2 letterPos = new Vector2(i * tileWidth, currentTilePosY + letterFloatHeight); // coordinates
-                    if (letterPos.x > (tileWidth * noSpawnZone)) // prevent letter from spawning too early
+                    if (letterPos.x > (tileWidth * noSpawnZone) && letterPos.x > cameraTransform.position.x) // prevent letter from spawning too early
                     {
                         GameObject newLetter = Instantiate(letter.LetterGenerator(), letterPos, Quaternion.identity); // cloning of letter
                         newLetter.transform.rotation = Quaternion.Euler(0, 180, 0); // rotation
