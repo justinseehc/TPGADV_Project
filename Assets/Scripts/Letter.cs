@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Letter : MonoBehaviour
 {
-    // change @ inspector!
+    // 1 - change @ inspector!
     public List<GameObject> alphabets = new List<GameObject>();
     public Health health;
     public Word word;
+    public Scene sceneManager;
 
 
-    // only change here!
+    // 2 - only change here!
     private List<string> letter = new List<string>(); // to store individial char for checking
-    public List<string> word2Display = new List<string>(); // to store individual char (correct) for displaying ++ created 5 empty index 
+    private List<string> word2Display = new List<string>(); // to store individual char (correct) for displaying
+    private bool isWordCompleted = true;
+
 
     // randomized generator for letters
     public GameObject LetterGenerator()
@@ -42,6 +45,7 @@ public class Letter : MonoBehaviour
                 word2Display[i] = letter[i]; // add correct char to a new list
                 letter[i] = ""; // remove char from old list and leave empty
 
+                WordCompleted();
                 word.DisplayLetter(word2Display); // send words to display
                 break;
             }
@@ -58,5 +62,21 @@ public class Letter : MonoBehaviour
     public void DestroyLetter(GameObject letter)
     {
         Destroy(letter);
+    }
+
+    private void WordCompleted()
+    {
+        for (int i = 0; i <= word2Display.Count; i++)
+        {
+            if (word2Display[i] == "_") 
+            {
+                isWordCompleted = false;
+                break;
+            } 
+            if (isWordCompleted)
+            {
+                FindObjectOfType<Scene>().GameOver(false);
+            }
+        }
     }
 }

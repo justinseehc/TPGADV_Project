@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
 {
-    // change @ inspector!
+    // 1 - change @ inspector!
     public Letter letter;
-    public GameOver gameOver;
+    public Scene sceneManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,7 +16,7 @@ public class PlayerTrigger : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Death")
         {
-            gameOver.EndTheGame();
+            FindObjectOfType<Scene>().GameOver(true);
         }
     }
 }

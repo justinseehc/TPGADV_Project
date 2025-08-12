@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
     // 1 - change @ inspector!
     public GameObject heart;
     public Camera camera;
-    public GameOver gameOver;
+    public Scene sceneManager;
 
     // 2 - only change here!
-    private int maxHealth = 3;
+    private int maxHealth = 5;
     private float heartPosX = -11f; // use this for the first heart position x
     private Dictionary<int, GameObject> hearts = new Dictionary<int, GameObject>(); // to store hearts gameobject
 
@@ -34,7 +35,7 @@ public class Health : MonoBehaviour
         // check if the first heart is used
         if (hearts.Count == 0)
         {
-            gameOver.EndTheGame();
+            FindObjectOfType<Scene>().GameOver(true);
         }
         else
         {
