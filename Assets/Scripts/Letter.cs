@@ -73,10 +73,7 @@ public class Letter : MonoBehaviour
                 isWordCompleted = false;
                 break;
             } 
-            if (isWordCompleted)
-            {
-                FindObjectOfType<Scene>().GameOver(false);
-            }
         }
+        if (isWordCompleted) FindObjectOfType<Scene>().GameOver(false);
     }
 }
