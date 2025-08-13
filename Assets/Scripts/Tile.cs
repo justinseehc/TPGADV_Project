@@ -42,7 +42,7 @@ public class Tile : MonoBehaviour
             if (!grounds.ContainsKey(i))
             {
                 // Spawn ground
-                Vector2 groundPos = new Vector2(i * tileWidth, 0);
+                Vector2 groundPos = new Vector2(i * tileWidth, -1.2f);
                 grounds[i] = Instantiate(groundTilePrefab, groundPos, Quaternion.identity);
                 grounds[i].transform.parent = tileManager.transform; // parent
                 currentTilePosY = groundPos.y;
