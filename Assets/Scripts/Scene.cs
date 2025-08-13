@@ -21,14 +21,13 @@ public class Scene : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(1);
         gameOverLose.SetActive(false);
         gameOverWin.SetActive(false);
     }
 
     public void QuitGame()
     {
-        Time.timeScale = 1f;
         Application.Quit();
     }
 }
