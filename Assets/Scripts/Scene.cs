@@ -14,8 +14,16 @@ public class Scene : MonoBehaviour
         isGameOver = true;
         Time.timeScale = 0f; // pause time
 
-        if (isRoundLost){ gameOverLose.SetActive(true); } // win-lose condition
-        else { gameOverWin.SetActive(true); }
+        if (isRoundLost) // win-lose condition
+        { 
+            gameOverLose.SetActive(true); 
+            gameOverLose.GetComponent<AudioSource>().Play();
+        } 
+        else 
+        { 
+            gameOverWin.SetActive(true);
+            gameOverWin.GetComponent<AudioSource>().Play();
+        }
     }
 
     public void RestartGame()

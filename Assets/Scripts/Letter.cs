@@ -66,7 +66,7 @@ public class Letter : MonoBehaviour
 
     private void WordCompleted()
     {
-        for (int i = 0; i <= word2Display.Count; i++)
+        for (int i = 0; i < word2Display.Count; i++)
         {
             if (word2Display[i] == "_") 
             {
@@ -75,5 +75,6 @@ public class Letter : MonoBehaviour
             } 
         }
         if (isWordCompleted) FindObjectOfType<Scene>().GameOver(false);
+        isWordCompleted = true;
     }
 }
